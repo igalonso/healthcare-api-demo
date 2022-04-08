@@ -3,12 +3,15 @@ from flask import Flask
 from flask import jsonify
 from flask import send_file
 from flask import request
+from flask_cors import CORS, cross_origin
 import configparser
 import time
 import pydicom
 import numpy as np
 import png as png
 import uuid
+import string    
+import random
 # Imports Python's built-in "os" module
 import os
 from googleapiclient import discovery
@@ -21,6 +24,8 @@ from google.oauth2 import service_account
 
 
 app = Flask(__name__)
+CORS(app)
+
 
 config = configparser.ConfigParser()
 config.sections()
@@ -130,7 +135,7 @@ def dicomweb_search_studies(project_id, location, dataset_id, dicom_store_id):
     print("Studies found: response is {}".format(response))
 
     # Uncomment the following lines to process the response as JSON.
-    # patients = response.json()
+    patients = response.json()
     # print('Patients found matching query:')
     # print(json.dumps(patients, indent=2))
 
@@ -355,32 +360,77 @@ def list_dicom_stores(project_id, location, dataset_id):
         print(dicom_store)
 
     return dicom_stores
+def list_datasets(project_id, location):
+
+    api_version = "v1"
+    service_name = "healthcare"
+    # Returns an authorized API client by discovering the Healthcare API
+    # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    client = discovery.build(service_name, api_version)
+
+    # TODO(developer): Uncomment these lines and replace with your values.
+    # project_id = 'my-project'  # replace with your GCP project ID
+    # location = 'us-central1'  # replace with the location of the datasets
+    dataset_parent = "projects/{}/locations/{}".format(project_id, location)
+
+    datasets = (
+        client.projects()
+        .locations()
+        .datasets()
+        .list(parent=dataset_parent)
+        .execute()
+        .get("datasets", [])
+    )
+
+    for dataset in datasets:
+        print(
+            "Dataset: {}\nTime zone: {}".format(
+                dataset.get("name"), dataset.get("timeZone")
+            )
+        )
+
+    return datasets
 
 
 # ROUTES
 @app.route("/demo")
 def homePage():
-    return jsonify({})
+    datasets = list_datasets(projectID,region)
+    print(datasets)
+    pretty_datasets = []
+    for d in datasets:
+        pretty_datasets.append(d['name'].split("/")[5])
+    response = jsonify(pretty_datasets)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
-@app.route("/demo/datasets")
-def populateDataSets():
-    datasets = list_dicom_stores(projectID,region,dataset)
+@app.route("/demo/<param_dataset>")
+def retireveDatastores(param_dataset):
+    datasets = list_dicom_stores(projectID,region,param_dataset)
     print(datasets)
     pretty_datasets = []
     for d in datasets:
         pretty_datasets.append(d['name'].split("/")[7])
-    return jsonify(pretty_datasets)
+    response = jsonify(pretty_datasets)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app.route("/demo/<param_dataset>/datastores/<param_datastore>/sample-image")
 def retrieveImage(param_dataset,param_datastore):
     json_params = dicomweb_search_instance(projectID,region,param_dataset,param_datastore)
     dicomweb_retrieve_instance(projectID,region,param_dataset,param_datastore,json_params[0]['0020000D']['Value'][0],json_params[0]['0020000E']['Value'][0],json_params[0]['00080018']['Value'][0])
     convert_to_png("instance.dcm")
-    return send_file("instance.png",mimetype="image/png")
+    response = send_file("instance.png",mimetype="image/png")
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app.route("/demo/<param_dataset>/datastores/<param_datastore>/sample-image/deid")
 def deIdandRetrieve(param_dataset,param_datastore):
-    datasetdeid=str(uuid.uuid1())+"-demo-dataset-deid"
+    
+    S = 5  # number of characters in the string.  
+    # call random.choices() string module to find the string in Uppercase + numeric data.  
+    ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S)) 
+    datasetdeid="demo-dataset-deid"+ran
     deidentify_dataset(projectID,region,param_dataset,datasetdeid)
     time.sleep(10)
     json_params = dicomweb_search_instance(projectID,region,datasetdeid,param_datastore)
@@ -391,13 +441,3 @@ def deIdandRetrieve(param_dataset,param_datastore):
 @app.route("/demo/<param_dataset>/datastores/<param_datastore>")
 def retrieveAll(param_dataset,param_datastore):
     return jsonify(dicomweb_search_instance(projectID,region,param_dataset,param_datastore))
-
-# @app.route("/instance")
-# def searchDICOMInstance():
-#     return jsonify(dicomweb_search_instance(projectID,region,dataset,dataStore)[0])
-# projects/igngar-test/locations/europe-west3/datasets/aa073cd2-b72b-11ec-b4a0-acde48001122-demo-dataset-deid
-# @app.route("/instance/image")
-# def retrieveJpgDICOM():
-#     dicomweb_retrieve_instance(projectID,region,dataset,dataStore,studyUID,seriesUID,instanceUID)
-#     convert_to_png("instance.dcm")
-#     return send_file("instance.png",mimetype="image/png")
