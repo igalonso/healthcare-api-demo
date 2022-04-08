@@ -18,6 +18,28 @@ function show_image(src, width, height, alt,where) {
     document.getElementById(where).appendChild(img);
 }
 
+function syntaxHighlight(json) {
+    if (typeof json != 'string') {
+         json = JSON.stringify(json, undefined, 2);
+    }
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+        return '<span class="' + cls + '">' + match + '</span>';
+    });
+}
+
 $(document).ready(function(){
     $('#researcher-show-list').click(function(){
         var url = "http://127.0.0.1:5000/demo";
@@ -58,8 +80,29 @@ $(document).ready(function(){
             }
         })
         .then(data => {
-            console.log(data);
             show_image(url,281,213,data,"researcher-sample-image");
+        })
+        .catch(function(error) {
+            alert(error);
+        });
+        
+    })
+    $('#researcher-sample-image-show-tags').click(function(){
+        var url = "http://127.0.0.1:5000/demo/demo-dataset/datastores/datastore-ds-raw/sample-image?onlytags=true";
+        fetch(url,{
+            method: "GET",
+            mode: "cors"
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(response.error)
+            }
+            response.text().then(function(result){
+                var div = document.getElementById("researcher-sample-image");
+                var p = document.createElement("p");
+                p.appendChild(document.createTextNode(result));
+                div.appendChild(p); 
+            })
         })
         .catch(function(error) {
             alert(error);

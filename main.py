@@ -1,3 +1,4 @@
+from ast import If
 import json
 from flask import Flask
 from flask import jsonify
@@ -417,7 +418,15 @@ def retireveDatastores(param_dataset):
 
 @app.route("/demo/<param_dataset>/datastores/<param_datastore>/sample-image")
 def retrieveImage(param_dataset,param_datastore):
+
     json_params = dicomweb_search_instance(projectID,region,param_dataset,param_datastore)
+    args = request.args
+    print(args)
+    if ( bool(args) and args["onlytags"] == "true"):
+        response = jsonify(json_params)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Content-Type','application/json')
+        return response
     dicomweb_retrieve_instance(projectID,region,param_dataset,param_datastore,json_params[0]['0020000D']['Value'][0],json_params[0]['0020000E']['Value'][0],json_params[0]['00080018']['Value'][0])
     convert_to_png("instance.dcm")
     response = send_file("instance.png",mimetype="image/png")
