@@ -1,10 +1,10 @@
 from ast import If
 import json
+import re
 from flask import Flask
 from flask import jsonify
 from flask import send_file
 from flask import request
-from flask_cors import CORS, cross_origin
 import configparser
 import time
 import pydicom
@@ -24,8 +24,7 @@ from google.oauth2 import service_account
 
 
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__, template_folder='site')
 
 
 config = configparser.ConfigParser()
@@ -50,6 +49,9 @@ seriesUID = config['DEFAULT']['SeriesUID']
 dcmFileName = config['DEFAULT']['DCMFileName']
 instanceUID = config['DEFAULT']['InstanceUID']
 serviceAccount = config['DEFAULT']['ServiceAccountFileName']
+
+#Consent env variables
+userUUID = config['DEFAULT']['UserUUID']
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=serviceAccount
 
@@ -311,7 +313,6 @@ def deidentify_dataset(project_id, location,dataset_id, destination_dataset_id):
         "De-identified data written to {}".format(dataset_id, destination_dataset_id)
     )
     return response
-
 # DICOM - JPG
 def convert_to_png(file):
     ds = pydicom.dcmread(file)
@@ -391,11 +392,238 @@ def list_datasets(project_id, location):
         )
 
     return datasets
+def delete_dataset(project_id, location, dataset_id):
+    """Deletes a dataset.
+
+    See https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/healthcare/api-client/v1/datasets
+    before running the sample."""
+    # Imports the Google API Discovery Service.
+    from googleapiclient import discovery
+
+    api_version = "v1"
+    service_name = "healthcare"
+    # Returns an authorized API client by discovering the Healthcare API
+    # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    client = discovery.build(service_name, api_version)
+
+    # TODO(developer): Uncomment these lines and replace with your values.
+    # project_id = 'my-project'  # replace with your GCP project ID
+    # location = 'us-central1'  # replace with the dataset's location
+    # dataset_id = 'my-dataset'  # replace with your dataset ID
+    dataset_name = "projects/{}/locations/{}/datasets/{}".format(
+        project_id, location, dataset_id
+    )
+
+    request = client.projects().locations().datasets().delete(name=dataset_name)
+
+    response = request.execute()
+    print("Deleted dataset: {}".format(dataset_id))
+    return response
+
+#CONSENTS:
+def list_consent_stores(project_id, location, dataset_id):
+
+    api_version = "v1"
+    service_name = "healthcare"
+    # Returns an authorized API client by discovering the Healthcare API
+    # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    client = discovery.build(service_name, api_version)
+
+    # TODO(developer): Uncomment these lines and replace with your values.
+    # project_id = 'my-project'  # replace with your GCP project ID
+    # location = 'us-central1'  # replace with the parent dataset's location
+    # dataset_id = 'my-dataset'  # replace with the consent store's parent dataset ID
+    consent_store_parent = "projects/{}/locations/{}/datasets/{}".format(
+        project_id, location, dataset_id
+    )
+
+    consent_stores = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .list(parent=consent_store_parent)
+        .execute()
+        .get("consentStores", [])
+    )
+
+    for consent_store in consent_stores:
+        print(consent_store)
+
+    return consent_stores
+def list_consents(project_id,location,dataset_id,consent_store):
+
+    api_version = "v1"
+    service_name = "healthcare"
+    # Returns an authorized API client by discovering the Healthcare API
+    # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    client = discovery.build(service_name, api_version)
+
+    # TODO(developer): Uncomment these lines and replace with your values.
+    # project_id = 'my-project'  # replace with your GCP project ID
+    # location = 'us-central1'  # replace with the parent dataset's location
+    # dataset_id = 'my-dataset'  # replace with the consent store's parent dataset ID
+    consent_parent = "projects/{}/locations/{}/datasets/{}/consentStores/{}".format(
+        project_id, location, dataset_id,consent_store
+    )
+
+    consent_stores = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .consents()
+        .list(parent=consent_parent)
+        .execute()
+        .get("consents", [])
+    )
+    return consent_stores
+def create_consent(project_id,location,dataset_id,consent_store):
+    api_version = "v1"
+    service_name = "healthcare"
+
+    client = discovery.build(service_name, api_version)
+
+    consent_artifact_parent = "projects/{}/locations/{}/datasets/{}/consentStores/{}".format(
+        project_id, location, dataset_id,consent_store
+    )
+
+    body = {
+        "user_id": userUUID,
+        "user_signature" : {
+            "user_id": userUUID,
+            "signature_time": {"seconds": 1649255061 }
+        }
+    }
+    consentsArtifact = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .consentArtifacts()
+        .create(parent=consent_artifact_parent,body=body)
+        .execute()
+    )
+
+    consent_parent = "projects/{}/locations/{}/datasets/{}/consentStores/{}".format(
+        project_id, location, dataset_id,consent_store
+    )
+
+    body = {
+        "user_id": userUUID,
+        "policies": [],
+        "consent_artifact": consentsArtifact["name"],
+        "state": "DRAFT"
+    }
+
+    consent = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .consents()
+        .create(parent=consent_parent,body=body)
+        .execute()
+    )
+
+    print (consent)
+
+    return consent
+def register_user_mapping(project_id,location,dataset_id,consent_store,user_id,doctor_id):
+    api_version = "v1"
+    service_name = "healthcare"
+
+    client = discovery.build(service_name, api_version)
+
+    user_data_mapping_artifact_parent = "projects/{}/locations/{}/datasets/{}/consentStores/{}".format(
+        project_id, location, dataset_id,consent_store
+    )
+
+    body = {
+        "user_id": user_id,
+        "data_id" : healthcareUrl+"/studies/"+studyUID+"/series/"+studyUID+"/instances/"+instanceUID
+    }
+    userDataMapping = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .userDataMappings()
+        .create(parent=user_data_mapping_artifact_parent,body=body)
+        .execute()
+    )
+
+    return userDataMapping
+def retrieve_user_mappings(project_id,location,dataset_id,consent_store,user_id):
+    api_version = "v1"
+    service_name = "healthcare"
+
+    client = discovery.build(service_name, api_version)
+
+    user_data_mapping_artifact_parent = "projects/{}/locations/{}/datasets/{}/consentStores/{}".format(
+        project_id, location, dataset_id,consent_store
+    )
+    userDataMapping = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .userDataMappings()
+        .list(parent=user_data_mapping_artifact_parent)
+        .execute()
+        .get("userDataMappings",[])
+        
+    )
+    return userDataMapping
+def activate_consent(project_id,location,dataset_id,consent_store):
+    api_version = "v1"
+    service_name = "healthcare"
+    consents = list_consents(project_id,location,dataset_id,consent_store,)
+    draft_consents = []
+    for consent in consents:
+        if(consent["state"] == 'DRAFT'):
+            draft_consents.append(consent)
+    print(draft_consents[0])
+    client = discovery.build(service_name, api_version)
+
+    body = {
+        "consent_artifact": draft_consents[0]["consentArtifact"],
+        "ttl": "100s"
+    }
+
+    activated_consent = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .consents()
+        .activate(name=draft_consents[0]['name'],body=body)
+        .execute()
+    )
+
+    print (activated_consent)
+    
+    return activated_consent
 
 
 # ROUTES
 @app.route("/demo")
-def homePage():
+def homepage():
+    return {}
+
+@app.route("/demo/clean-demo")
+def deleteAll():
+    datasets = list_datasets(projectID, region)
+    for dataset in datasets:
+        print(dataset['name'].split("/")[5])
+        if (dataset['name'].split("/")[5] != "demo-dataset"):
+            print(dataset.get("name"))
+            print("Deleting Dataset: "+ dataset['name'].split("/")[5])
+            delete_dataset(projectID,region,dataset['name'].split("/")[5])
+    return {}
+
+@app.route("/demo/datasets")
+def retrieveDatasets():
     datasets = list_datasets(projectID,region)
     print(datasets)
     pretty_datasets = []
@@ -405,7 +633,7 @@ def homePage():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-@app.route("/demo/<param_dataset>")
+@app.route("/demo/datasets/<param_dataset>")
 def retireveDatastores(param_dataset):
     datasets = list_dicom_stores(projectID,region,param_dataset)
     print(datasets)
@@ -416,37 +644,84 @@ def retireveDatastores(param_dataset):
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-@app.route("/demo/<param_dataset>/datastores/<param_datastore>/sample-image")
+@app.route("/demo/datasets/<param_dataset>/datastores/<param_datastore>/sample-image")
 def retrieveImage(param_dataset,param_datastore):
 
     json_params = dicomweb_search_instance(projectID,region,param_dataset,param_datastore)
     args = request.args
     print(args)
+    index = args.get("image_index")
+    if(index is None):
+        index = 0
     if ( bool(args) and args["onlytags"] == "true"):
         response = jsonify(json_params)
         response.headers.add('Access-Control-Allow-Origin', '*')
         response.headers.add('Content-Type','application/json')
         return response
-    dicomweb_retrieve_instance(projectID,region,param_dataset,param_datastore,json_params[0]['0020000D']['Value'][0],json_params[0]['0020000E']['Value'][0],json_params[0]['00080018']['Value'][0])
+    dicomweb_retrieve_instance(projectID,region,param_dataset,param_datastore,json_params[index]['0020000D']['Value'][index],json_params[index]['0020000E']['Value'][0],json_params[index]['00080018']['Value'][0])
     convert_to_png("instance.dcm")
     response = send_file("instance.png",mimetype="image/png")
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-@app.route("/demo/<param_dataset>/datastores/<param_datastore>/sample-image/deid")
+@app.route("/demo/datasets/<param_dataset>/datastores/<param_datastore>/sample-image/deid")
 def deIdandRetrieve(param_dataset,param_datastore):
     
     S = 5  # number of characters in the string.  
-    # call random.choices() string module to find the string in Uppercase + numeric data.  
     ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S)) 
     datasetdeid="demo-dataset-deid"+ran
     deidentify_dataset(projectID,region,param_dataset,datasetdeid)
-    time.sleep(10)
+    time.sleep(5)
     json_params = dicomweb_search_instance(projectID,region,datasetdeid,param_datastore)
+    args = request.args
+    index = args.get("image_index")
+    if(index is None):
+        index = 0
+    if ( bool(args) and args["onlytags"] == "true"):
+        response = jsonify(json_params)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Content-Type','application/json')
+        return response
     dicomweb_retrieve_instance(projectID,region,datasetdeid,param_datastore,json_params[0]['0020000D']['Value'][0],json_params[0]['0020000E']['Value'][0],json_params[0]['00080018']['Value'][0])
     convert_to_png("instance.dcm")
     return send_file("instance.png",mimetype="image/png")
 
-@app.route("/demo/<param_dataset>/datastores/<param_datastore>")
+@app.route("/demo/datasets/<param_dataset>/datastores/<param_datastore>")
 def retrieveAll(param_dataset,param_datastore):
     return jsonify(dicomweb_search_instance(projectID,region,param_dataset,param_datastore))
+
+@app.route("/demo/consents/<param_dataset>")
+def retrieveAllConsents(param_dataset):
+    response = jsonify(list_consents(projectID,region,param_dataset,"consent-ds"))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Content-Type','application/json')    
+    return response
+@app.route("/demo/consents/<param_dataset>/datastores/<param_datastore>/create")
+def createConsent(param_dataset,param_datastore):
+    response = jsonify(create_consent(projectID,region,param_dataset,param_datastore))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Content-Type','application/json')    
+    return response
+
+@app.route("/demo/consents/<param_dataset>/datastores/<param_datastore>/consents/activate")
+def activateConsent(param_dataset,param_datastore):
+    response = jsonify(activate_consent(projectID,region,param_dataset,param_datastore))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Content-Type','application/json')    
+    return response
+
+
+@app.route("/demo/consents/<param_dataset>/datastores/<param_datastore>/usermappings/create")
+def registerDataMapping(param_dataset,param_datastore):
+    response = jsonify(register_user_mapping(projectID,region,param_dataset,param_datastore,userUUID,userUUID))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Content-Type','application/json')    
+    return response
+@app.route("/demo/consents/<param_dataset>/datastores/<param_datastore>/usermappings")
+def retrieveUserMappings(param_dataset,param_datastore):
+    response = jsonify(retrieve_user_mappings(projectID,region,param_dataset,param_datastore,userUUID))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Content-Type','application/json')    
+    return response
+
+
