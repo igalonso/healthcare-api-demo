@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="875 -309 852 668" width="852" height="668">
+  <defs>
+    <font-face font-family="Roboto" font-size="10" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-73.24219" underline-thickness="48.828125" slope="0" x-height="528.3203" cap-height="710.9375" ascent="927.7344" descent="-244.14062" font-weight="400">
+      <font-face-src>
+        <font-face-name name="Roboto-Regular"/>
+      </font-face-src>
+    </font-face>
+    <clipPath id="inner_stroke_clip_path">
+      <path d="M 945.3015 -153.99038 L 1043.3952 -153.99038 L 1043.3952 -97.99038 L 945.3015 -97.99038 Z"/>
+    </clipPath>
+    <font-face font-family="Roboto" font-size="12" panose-1="2 0 0 0 0 0 0 0 0 0" units-per-em="1000" underline-position="-73.24219" underline-thickness="48.828125" slope="0" x-height="528.3203" cap-height="710.9375" ascent="927.7344" descent="-244.14062" font-weight="400">
+      <font-face-src>
+        <font-face-name name="Roboto-Regular"/>
+      </font-face-src>
+    </font-face>
+    <clipPath id="inner_stroke_clip_path_2">
+      <path d="M 945.3015 -77.99038 L 1043.3952 -77.99038 L 1043.3952 -21.990382 L 945.3015 -21.990382 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_3">
+      <path d="M 1262.3015 -2.4903825 L 1360.3952 -2.4903825 L 1360.3952 53.50962 L 1262.3015 53.50962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_4">
+      <path d="M 1271.489 -155.99038 L 1369.5827 -155.99038 L 1369.5827 -99.99038 L 1271.489 -99.99038 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_5">
+      <path d="M 1271.489 -77.99038 L 1369.5827 -77.99038 L 1369.5827 -21.990382 L 1271.489 -21.990382 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_6">
+      <path d="M 1271.489 -2.4903825 L 1369.5827 -2.4903825 L 1369.5827 53.50962 L 1271.489 53.50962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_7">
+      <path d="M 1389.5827 -155.99038 L 1487.6765 -155.99038 L 1487.6765 -99.99038 L 1389.5827 -99.99038 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_8">
+      <path d="M 1389.5827 -77.99038 L 1487.6765 -77.99038 L 1487.6765 -21.990382 L 1389.5827 -21.990382 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_9">
+      <path d="M 1557.6765 -154.99038 L 1655.7702 -154.99038 L 1655.7702 -98.99038 L 1557.6765 -98.99038 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_10">
+      <path d="M 1557.6765 -77.99038 L 1655.7702 -77.99038 L 1655.7702 -21.990382 L 1557.6765 -21.990382 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_11">
+      <path d="M 1557.6765 -2.4903825 L 1655.7702 -2.4903825 L 1655.7702 53.50962 L 1557.6765 53.50962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_12">
+      <path d="M 1083.3952 -77.99038 L 1181.489 -77.99038 L 1181.489 -21.990382 L 1083.3952 -21.990382 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_13">
+      <path d="M 1083.3952 -2.4903825 L 1181.489 -2.4903825 L 1181.489 53.50962 L 1083.3952 53.50962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_14">
+      <path d="M 945.3015 -2.4903825 L 1043.3952 -2.4903825 L 1043.3952 53.50962 L 945.3015 53.50962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_15">
+      <path d="M 982.5457 156.00962 L 1126.5407 156.00962 L 1126.5407 212.00962 L 982.5457 212.00962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_16">
+      <path d="M 1146.5407 156.00962 L 1290.5358 156.00962 L 1290.5358 212.00962 L 1146.5407 212.00962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_17">
+      <path d="M 1474.531 156.00962 L 1618.526 156.00962 L 1618.526 212.00962 L 1474.531 212.00962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_18">
+      <path d="M 1310.5358 156.00962 L 1454.531 156.00962 L 1454.531 212.00962 L 1310.5358 212.00962 Z"/>
+    </clipPath>
+    <clipPath id="inner_stroke_clip_path_19">
+      <path d="M 1136.9 273.00962 L 1465.1 273.00962 L 1465.1 329.0096 L 1136.9 329.0096 Z"/>
+    </clipPath>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.10.1 
+    <dc:date>2020-10-08 03:53:49 +0000</dc:date>
+  </metadata>
+  <g id="Consent_data_model" stroke-opacity="1" stroke="none" stroke-dasharray="none" fill-opacity="1" fill="none">
+    <title>Consent data model</title>
+    <rect fill="white" x="875" y="-309" width="852" height="668"/>
+    <g id="Consent_data_model: Layer 1">
+      <title>Layer 1</title>
+      <g id="Group_401">
+        <g id="Group_347">
+          <g id="Graphic_367">
+            <rect x="885.3015" y="-298.9904" width="831.3971" height="647.9808" fill="#eaedef"/>
+          </g>
+          <g id="Group_348">
+            <g id="Graphic_366">
+              <title>Fill-3</title>
+              <path d="M 982.6915 -272.10878 C 982.6915 -275.3387 985.1326 -277.78043 988.3323 -277.78043 C 989.9704 -277.78043 991.3502 -277.1284 992.3209 -276.00615 L 991.3502 -275.0657 C 990.5922 -276.00615 989.576 -276.44556 988.3323 -276.44556 C 986.0428 -276.44556 984.1169 -274.7779 984.1169 -272.10878 C 984.1169 -269.43966 986.0428 -267.772 988.3323 -267.772 C 989.6974 -267.772 990.8498 -268.4086 991.6688 -269.34906 L 992.6389 -268.37842 C 991.6836 -267.24137 990.1522 -266.43713 988.3323 -266.43713 C 985.1326 -266.43713 982.6915 -268.87884 982.6915 -272.10878" fill="#757575"/>
+            </g>
+            <g id="Graphic_365">
+              <title>Fill-5</title>
+              <rect x="993.7301" y="-277.5375" width="1.3952644" height="10.857671" fill="#757575"/>
+            </g>
+            <g id="Graphic_364">
+              <title>Fill-7</title>
+              <path d="M 1002.4192 -270.3952 C 1002.4192 -272.09368 1001.2365 -273.0791 999.9929 -273.0791 C 998.7492 -273.0791 997.5666 -272.09368 997.5666 -270.3952 C 997.5666 -268.69673 998.7492 -267.7113 999.9929 -267.7113 C 1001.2365 -267.7113 1002.4192 -268.69673 1002.4192 -270.3952 M 1003.8144 -270.3952 C 1003.8144 -268.1359 1002.222 -266.43743 999.9929 -266.43743 C 997.7638 -266.43743 996.1713 -268.1359 996.1713 -270.3952 C 996.1713 -272.6545 997.7638 -274.35297 999.9929 -274.35297 C 1002.222 -274.35297 1003.8144 -272.6545 1003.8144 -270.3952" fill="#757575"/>
+            </g>
+            <g id="Graphic_363">
+              <title>Fill-8</title>
+              <path d="M 1010.1221 -266.68 L 1010.1221 -267.71104 L 1010.0617 -267.71104 C 1009.6519 -267.02882 1008.7269 -266.4372 1007.7112 -266.4372 C 1005.8002 -266.4372 1004.8751 -267.72645 1004.8751 -269.56113 L 1004.8751 -274.11053 L 1006.2704 -274.11053 L 1006.2704 -269.78853 C 1006.2704 -268.24166 1007.0438 -267.71104 1008.105 -267.71104 C 1009.3185 -267.71104 1010.0617 -268.8789 1010.0617 -270.01594 L 1010.0617 -274.11053 L 1011.4564 -274.11053 L 1011.4564 -266.68 Z" fill="#757575"/>
+            </g>
+            <g id="Graphic_362">
+              <title>Fill-9</title>
+              <path d="M 1018.7046 -270.3952 C 1018.7046 -272.09368 1017.5823 -273.0791 1016.3387 -273.0791 C 1015.0956 -273.0791 1013.9734 -272.06348 1013.9734 -270.3952 C 1013.9734 -268.72692 1015.0956 -267.7113 1016.3387 -267.7113 C 1017.5823 -267.7113 1018.7046 -268.69673 1018.7046 -270.3952 M 1012.5781 -270.3952 C 1012.5781 -272.6699 1014.231 -274.35297 1016.1112 -274.35297 C 1017.2945 -274.35297 1018.2195 -273.76196 1018.6435 -273.0791 L 1018.7046 -273.0791 L 1018.6435 -274.11016 L 1018.6435 -277.5373 L 1020.0388 -277.5373 L 1020.0388 -266.68025 L 1018.7046 -266.68025 L 1018.7046 -267.7113 L 1018.6435 -267.7113 C 1018.2195 -267.02907 1017.2945 -266.43743 1016.1112 -266.43743 C 1014.231 -266.43743 1012.5781 -268.1205 1012.5781 -270.3952" fill="#757575"/>
+            </g>
+            <g id="Graphic_361">
+              <title>Fill-18</title>
+              <path d="M 930.1039 -272.65474 C 930.1039 -276.0819 932.985 -278.8718 936.4121 -278.8718 C 938.3078 -278.8718 939.6575 -278.12918 940.6731 -277.15854 L 939.4757 -275.96048 C 938.7472 -276.6427 937.7618 -277.17333 936.4121 -277.17333 C 933.91 -277.17333 931.9539 -275.15685 931.9539 -272.65474 C 931.9539 -270.15263 933.91 -268.13554 936.4121 -268.13554 C 938.0348 -268.13554 938.9598 -268.78757 939.5509 -269.3792 C 940.0365 -269.8642 940.3551 -270.56185 940.4765 -271.5177 L 936.4121 -271.5177 L 936.4121 -273.21556 L 942.1288 -273.21556 C 942.1898 -272.91235 942.22 -272.54874 942.22 -272.15432 C 942.22 -270.88046 941.8712 -269.3034 940.7489 -268.18114 C 939.6575 -267.0441 938.2622 -266.43768 936.4121 -266.43768 C 932.985 -266.43768 930.1039 -269.2276 930.1039 -272.65474" fill="#757575"/>
+            </g>
+            <g id="Graphic_360">
+              <title>Fill-19</title>
+              <path d="M 946.8402 -268.0145 C 945.6268 -268.0145 944.581 -269.01535 944.581 -270.4408 C 944.581 -271.88168 945.6268 -272.8671 946.8402 -272.8671 C 948.0531 -272.8671 949.0995 -271.88168 949.0995 -270.4408 C 949.0995 -269.01535 948.0531 -268.0145 946.8402 -268.0145 M 946.8402 -274.44418 C 944.6259 -274.44418 942.8215 -272.7611 942.8215 -270.4408 C 942.8215 -268.1359 944.6259 -266.43743 946.8402 -266.43743 C 949.0539 -266.43743 950.8584 -268.1359 950.8584 -270.4408 C 950.8584 -272.7611 949.0539 -274.44418 946.8402 -274.44418" fill="#757575"/>
+            </g>
+            <g id="Graphic_359">
+              <title>Fill-20</title>
+              <path d="M 955.6066 -268.0145 C 954.3937 -268.0145 953.3473 -269.01535 953.3473 -270.4408 C 953.3473 -271.88168 954.3937 -272.8671 955.6066 -272.8671 C 956.8194 -272.8671 957.8659 -271.88168 957.8659 -270.4408 C 957.8659 -269.01535 956.8194 -268.0145 955.6066 -268.0145 M 955.6066 -274.44418 C 953.3923 -274.44418 951.5878 -272.7611 951.5878 -270.4408 C 951.5878 -268.1359 953.3923 -266.43743 955.6066 -266.43743 C 957.8203 -266.43743 959.6253 -268.1359 959.6253 -270.4408 C 959.6253 -272.7611 957.8203 -274.44418 955.6066 -274.44418" fill="#757575"/>
+            </g>
+            <g id="Graphic_358">
+              <title>Fill-21</title>
+              <path d="M 964.35 -268.0145 C 963.1371 -268.0145 962.1209 -269.03075 962.1209 -270.4254 C 962.1209 -271.83607 963.1371 -272.8671 964.35 -272.8671 C 965.548 -272.8671 966.4878 -271.83607 966.4878 -270.4254 C 966.4878 -269.03075 965.548 -268.0145 964.35 -268.0145 Z M 966.367 -274.20137 L 966.367 -273.54934 L 966.306 -273.54934 C 965.9116 -274.01956 965.1536 -274.44418 964.1983 -274.44418 C 962.1967 -274.44418 960.362 -272.6853 960.362 -270.4254 C 960.362 -268.1815 962.1967 -266.43743 964.1983 -266.43743 C 965.1536 -266.43743 965.9116 -266.86205 966.306 -267.34707 L 966.367 -267.34707 L 966.367 -266.77084 C 966.367 -265.23938 965.548 -264.42034 964.2285 -264.42034 C 963.1519 -264.42034 962.4845 -265.19378 962.2121 -265.8458 L 960.68 -265.20918 C 961.12 -264.14733 962.2879 -262.84327 964.2285 -262.84327 C 966.2912 -262.84327 968.0347 -264.05673 968.0347 -267.01366 L 968.0347 -274.20137 Z" fill="#757575"/>
+            </g>
+            <g id="Graphic_357">
+              <title>Fill-22</title>
+              <rect x="969.2483" y="-278.44712" width="1.7588713" height="11.767305" fill="#757575"/>
+            </g>
+            <g id="Graphic_356">
+              <title>Fill-23</title>
+              <path d="M 975.6927 -272.8973 C 976.3903 -272.8973 976.982 -272.5485 977.1786 -272.04807 L 973.6004 -270.5622 C 973.5548 -272.1091 974.7979 -272.8973 975.6927 -272.8973 M 975.8295 -268.0145 C 974.9347 -268.0145 974.2974 -268.4237 973.8882 -269.22735 L 979.2413 -271.44165 L 979.0595 -271.89647 C 978.7254 -272.7913 977.7098 -274.44418 975.6323 -274.44418 C 973.5696 -274.44418 971.8563 -272.8215 971.8563 -270.4408 C 971.8563 -268.1963 973.5548 -266.43743 975.8295 -266.43743 C 977.6642 -266.43743 978.7254 -267.5597 979.1655 -268.2117 L 977.8004 -269.12135 C 977.3456 -268.4539 976.7237 -268.0145 975.8295 -268.0145" fill="#757575"/>
+            </g>
+            <g id="Group_349">
+              <g id="Graphic_355"/>
+              <g id="Group_350">
+                <g id="Graphic_354">
+                  <path d="M 917.2362 -275.83735 L 917.8924 -275.83735 L 919.6424 -277.58734 L 919.7299 -278.3311 C 918.3299 -279.55608 916.4924 -280.29983 914.48 -280.29983 C 910.8487 -280.29983 907.7862 -277.84984 906.8675 -274.4811 C 907.0862 -274.61236 907.48 -274.52486 907.48 -274.52486 L 910.98 -275.0936 C 910.98 -275.0936 911.155 -275.39985 911.2425 -275.3561 C 912.03 -276.2311 913.2112 -276.79985 914.48 -276.79985 C 915.53 -276.79985 916.4924 -276.44985 917.2362 -275.83735 Z" fill="#ea4335"/>
+                </g>
+                <g id="Graphic_353">
+                  <path d="M 922.0924 -274.4811 C 921.6987 -275.9686 920.8674 -277.32484 919.7299 -278.3311 L 917.2362 -275.83735 C 918.1987 -275.04985 918.8549 -273.7811 918.8549 -272.42487 L 918.8549 -271.98737 C 920.0799 -271.98737 921.0424 -271.02487 921.0424 -269.79988 C 921.0424 -268.5749 920.0799 -267.6124 918.8549 -267.6124 L 914.48 -267.6124 L 914.0425 -267.1749 L 914.0425 -264.5499 L 914.48 -264.1124 L 918.8549 -264.1124 C 922.0049 -264.1124 924.5424 -266.6499 924.5424 -269.79988 C 924.5424 -271.72487 923.5799 -273.47486 922.0924 -274.4811 Z" fill="#4285f4"/>
+                </g>
+                <g id="Graphic_352">
+                  <path d="M 910.105 -264.1124 L 914.48 -264.1124 L 914.48 -267.6124 L 910.105 -267.6124 C 909.7987 -267.6124 909.4925 -267.6999 909.1862 -267.83114 L 908.5737 -267.6124 L 906.8237 -265.8624 L 906.6925 -265.2499 C 907.6112 -264.5499 908.8362 -264.1124 910.105 -264.1124 Z" fill="#34a853"/>
+                </g>
+                <g id="Graphic_351">
+                  <path d="M 910.105 -275.48735 C 906.955 -275.48735 904.4175 -272.94986 904.4175 -269.79988 C 904.4175 -267.9624 905.2925 -266.2999 906.6925 -265.2499 L 909.23 -267.7874 C 908.4425 -268.1374 907.9175 -268.92488 907.9175 -269.79988 C 907.9175 -271.02487 908.88 -271.98737 910.105 -271.98737 C 910.98 -271.98737 911.7675 -271.46237 912.1175 -270.71862 L 914.655 -273.2561 C 913.605 -274.61236 911.9425 -275.48735 910.105 -275.48735 Z" fill="#fbbc05"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g id="Graphic_346">
+          <title>zone internal - yellow</title>
+          <rect x="905.3015" y="-245.99038" width="791.3971" height="498.98076" fill="#fef7e0"/>
+          <rect x="905.3015" y="-245.99038" width="791.3971" height="498.98076" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <text transform="translate(915.3015 -230.99038)" fill="#757575">
+            <tspan font-family="Roboto" font-size="10" font-weight="400" fill="#757575" x="0" y="9">Consent store</tspan>
+          </text>
+        </g>
+        <g id="Graphic_341">
+          <title>zone internal - green</title>
+          <rect x="925.3015" y="-198.99038" width="296.1875" height="292" fill="#e2f3ec"/>
+          <rect x="925.3015" y="-198.99038" width="296.1875" height="292" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <text transform="translate(935.3015 -183.99038)" fill="#757575">
+            <tspan font-family="Roboto" font-size="10" font-weight="400" fill="#757575" x="0" y="9">Consents</tspan>
+          </text>
+        </g>
+        <g id="Group_386">
+          <g id="Graphic_307">
+            <title>zone internal - blue</title>
+            <rect x="1063.3952" y="-153.19038" width="138.09375" height="225.3889" fill="#e2f7fe"/>
+            <rect x="1063.3952" y="-153.19038" width="138.09375" height="225.3889" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            <text transform="translate(1073.3952 -138.19038)" fill="#757575">
+              <tspan font-family="Roboto" font-size="10" font-weight="400" fill="#757575" x="0" y="9">Policies</tspan>
+            </text>
+          </g>
+          <g id="Graphic_385">
+            <title>Stroke-21</title>
+            <line x1="1067.5115" y1="77.36782" x2="1197.3727" y2="77.36782" stroke="white" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.732"/>
+          </g>
+          <g id="Graphic_384">
+            <title>Stroke-22</title>
+            <line x1="1072.4244" y1="82.03442" x2="1192.4598" y2="82.03442" stroke="white" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.601"/>
+          </g>
+        </g>
+        <g id="Graphic_340">
+          <rect x="945.3015" y="-153.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="945.3015" y="-153.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path)"/>
+          <text transform="translate(975.8298 -133.49038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">User id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_339">
+          <rect x="945.3015" y="-77.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="945.3015" y="-77.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_2)"/>
+          <text transform="translate(967.7907 -57.49038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">Expiration</tspan>
+          </text>
+        </g>
+        <g id="Graphic_338">
+          <rect x="1262.3015" y="-2.4903825" width="98.09375" height="56" fill="white"/>
+          <rect x="1262.3015" y="-2.4903825" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_3)"/>
+          <text transform="translate(1297.4265 18.009618)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">State</tspan>
+          </text>
+        </g>
+        <g id="Graphic_337">
+          <title>zone internal - green</title>
+          <rect x="1251.489" y="-198.99038" width="256.1875" height="292" fill="#e2f3ec"/>
+          <rect x="1251.489" y="-198.99038" width="256.1875" height="292" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <text transform="translate(1261.489 -183.99038)" fill="#757575">
+            <tspan font-family="Roboto" font-size="10" font-weight="400" fill="#757575" x="0" y="9">Consent artifacts</tspan>
+          </text>
+        </g>
+        <g id="Graphic_336">
+          <title>zone internal - green</title>
+          <rect x="1537.6765" y="-198.99038" width="138.09375" height="292" fill="#e2f3ec"/>
+          <rect x="1537.6765" y="-198.99038" width="138.09375" height="292" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <text transform="translate(1547.6765 -183.99038)" fill="#757575">
+            <tspan font-family="Roboto" font-size="10" font-weight="400" fill="#757575" x="0" y="9">User data mappings</tspan>
+          </text>
+        </g>
+        <g id="Graphic_335">
+          <rect x="1271.489" y="-155.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="1271.489" y="-155.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_4)"/>
+          <text transform="translate(1302.0173 -135.49038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">User id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_334">
+          <rect x="1271.489" y="-77.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="1271.489" y="-77.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_5)"/>
+          <text transform="translate(1292.0651 -57.49038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">Signatures</tspan>
+          </text>
+        </g>
+        <g id="Graphic_333">
+          <rect x="1271.489" y="-2.4903825" width="98.09375" height="56" fill="white"/>
+          <rect x="1271.489" y="-2.4903825" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_6)"/>
+          <text transform="translate(1290.1198 18.009618)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">Timestamp</tspan>
+          </text>
+        </g>
+        <g id="Graphic_332">
+          <rect x="1389.5827" y="-155.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="1389.5827" y="-155.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_7)"/>
+          <text transform="translate(1413.1179 -135.49038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">Metadata</tspan>
+          </text>
+        </g>
+        <g id="Group_328">
+          <g id="Graphic_331">
+            <rect x="1389.5827" y="-77.99038" width="98.09375" height="56" fill="white"/>
+            <rect x="1389.5827" y="-77.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_8)"/>
+            <text transform="translate(1411.8991 -63.99038)" fill="#212121">
+              <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">Images or</tspan>
+              <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="11.115234" y="25"> PDFs</tspan>
+            </text>
+          </g>
+          <g id="Graphic_330">
+            <title>Stroke-21</title>
+            <line x1="1392.5067" y1="-17.632182" x2="1484.7525" y2="-17.632182" stroke="white" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.732"/>
+          </g>
+          <g id="Graphic_329">
+            <title>Stroke-22</title>
+            <line x1="1395.9965" y1="-12.965582" x2="1481.2626" y2="-12.965582" stroke="white" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.601"/>
+          </g>
+        </g>
+        <g id="Graphic_327">
+          <rect x="1557.6765" y="-154.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="1557.6765" y="-154.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_9)"/>
+          <text transform="translate(1588.2048 -134.49038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">User id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_326">
+          <rect x="1557.6765" y="-77.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="1557.6765" y="-77.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_10)"/>
+          <text transform="translate(1587.9763 -57.49038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">Data id</tspan>
+          </text>
+        </g>
+        <g id="Graphic_319">
+          <rect x="1557.6765" y="-2.4903825" width="98.09375" height="56" fill="white"/>
+          <rect x="1557.6765" y="-2.4903825" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_11)"/>
+          <text transform="translate(1580.2478 11.509618)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="1.4853516" y="11">Resource </tspan>
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x=".8994141" y="25">attributes</tspan>
+          </text>
+        </g>
+        <g id="Graphic_306">
+          <rect x="1083.3952" y="-77.99038" width="98.09375" height="56" fill="white"/>
+          <rect x="1083.3952" y="-77.99038" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_12)"/>
+          <text transform="translate(1105.9665 -63.99038)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="1.4853516" y="11">Resource </tspan>
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x=".8994141" y="25">attributes</tspan>
+          </text>
+        </g>
+        <g id="Graphic_305">
+          <rect x="1083.3952" y="-2.4903825" width="98.09375" height="56" fill="white"/>
+          <rect x="1083.3952" y="-2.4903825" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_13)"/>
+          <text transform="translate(1105.4362 18.009618)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">Auth rules</tspan>
+          </text>
+        </g>
+        <g id="Graphic_374">
+          <rect x="945.3015" y="-2.4903825" width="98.09375" height="56" fill="white"/>
+          <rect x="945.3015" y="-2.4903825" width="98.09375" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_14)"/>
+          <text transform="translate(980.4265 18.009618)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="11">State</tspan>
+          </text>
+        </g>
+        <g id="Graphic_396">
+          <path d="M 1132.9421 113.00962 L 1132.9421 63.40962 C 1132.9421 63.133475 1132.7182 62.90962 1132.4421 62.90962 C 1132.166 62.90962 1131.9421 63.133475 1131.9421 63.40962 L 1131.9421 113.00962 C 1131.9421 113.28576 1132.166 113.50962 1132.4421 113.50962 C 1132.7182 113.50962 1132.9421 113.28576 1132.9421 113.00962 Z M 1131.9421 55.40962 L 1131.9421 63.40962 L 1132.9421 63.40962 L 1132.9421 55.40962 Z M 1128.7956 59.76317 L 1132.7956 55.76317 L 1132.0885 55.76317 L 1136.0885 59.76317 L 1136.7956 59.056064 L 1132.7956 55.056064 L 1132.4421 54.70251 L 1132.0885 55.056064 L 1128.0885 59.056064 Z" fill="#616161"/>
+        </g>
+        <g id="Graphic_397">
+          <path d="M 1237.4681 113.00962 L 1237.4681 -49.99038 C 1237.4681 -50.266525 1237.2443 -50.49038 1236.9681 -50.49038 L 1191.389 -50.49038 C 1191.1128 -50.49038 1190.889 -50.266525 1190.889 -49.99038 C 1190.889 -49.71424 1191.1128 -49.49038 1191.389 -49.49038 L 1236.9681 -49.49038 L 1236.4681 -49.99038 L 1236.4681 113.00962 C 1236.4681 113.28576 1236.692 113.50962 1236.9681 113.50962 C 1237.2443 113.50962 1237.4681 113.28576 1237.4681 113.00962 Z M 1183.389 -49.49038 L 1191.389 -49.49038 L 1191.389 -50.49038 L 1183.389 -50.49038 Z M 1187.7425 -46.343936 L 1183.7425 -50.343936 L 1183.7425 -49.63683 L 1187.7425 -53.63683 L 1187.0354 -54.343936 L 1183.0354 -50.343936 L 1182.6819 -49.99038 L 1183.0354 -49.63683 L 1187.0354 -45.63683 Z" fill="#616161"/>
+        </g>
+        <g id="Graphic_398">
+          <path d="M 1241.589 -71.79143 L 1231.389 -71.79143 C 1231.1128 -71.79143 1230.889 -71.56757 1230.889 -71.29143 C 1230.889 -71.01529 1231.1128 -70.79143 1231.389 -70.79143 L 1241.589 -70.79143 C 1241.8651 -70.79143 1242.089 -71.01529 1242.089 -71.29143 C 1242.089 -71.56757 1241.8651 -71.79143 1241.589 -71.79143 Z M 1223.389 -70.79143 L 1231.389 -70.79143 L 1231.389 -71.79143 L 1223.389 -71.79143 Z M 1227.7425 -67.64498 L 1223.7425 -71.64498 L 1223.7425 -70.93788 L 1227.7425 -74.93788 L 1227.0354 -75.64498 L 1223.0354 -71.64498 L 1222.6819 -71.29143 L 1223.0354 -70.93788 L 1227.0354 -66.93788 Z M 1249.589 -71.79143 L 1241.589 -71.79143 L 1241.589 -70.79143 L 1249.589 -70.79143 Z M 1245.2354 -74.93788 L 1249.2354 -70.93788 L 1249.2354 -71.64498 L 1245.2354 -67.64498 L 1245.9425 -66.93788 L 1249.9425 -70.93788 L 1250.296 -71.29143 L 1249.9425 -71.64498 L 1245.9425 -75.64498 Z" fill="#616161"/>
+        </g>
+        <g id="Graphic_399">
+          <path d="M 1465.1 301.5014 L 1685.6348 301.4904 C 1685.911 301.49037 1686.1348 301.2665 1686.1348 300.9904 L 1686.1348 -49.99038 C 1686.1348 -50.266525 1685.911 -50.49038 1685.6348 -50.49038 L 1665.6702 -50.49038 C 1665.394 -50.49038 1665.1702 -50.266525 1665.1702 -49.99038 C 1665.1702 -49.71424 1665.394 -49.49038 1665.6702 -49.49038 L 1685.6348 -49.49038 L 1685.1348 -49.99038 L 1685.1348 300.9904 L 1685.6348 300.4904 L 1465.1 300.5014 C 1464.8238 300.50142 1464.6 300.7253 1464.6 301.00144 C 1464.6 301.27758 1464.8239 301.50142 1465.1 301.5014 Z M 1657.6702 -49.49038 L 1665.6702 -49.49038 L 1665.6702 -50.49038 L 1657.6702 -50.49038 Z M 1662.0238 -46.343936 L 1658.0238 -50.343936 L 1658.0238 -49.63683 L 1662.0238 -53.63683 L 1661.3167 -54.343936 L 1657.3167 -50.343936 L 1656.9631 -49.99038 L 1657.3167 -49.63683 L 1661.3167 -45.63683 Z" fill="#616161"/>
+        </g>
+        <g id="Graphic_400">
+          <path d="M 1607.2233 113.00962 L 1607.2233 63.40962 C 1607.2233 63.133475 1606.9995 62.90962 1606.7233 62.90962 C 1606.4472 62.90962 1606.2233 63.133475 1606.2233 63.40962 L 1606.2233 113.00962 C 1606.2233 113.28576 1606.4472 113.50962 1606.7233 113.50962 C 1606.9995 113.50962 1607.2233 113.28576 1607.2233 113.00962 Z M 1606.2233 55.40962 L 1606.2233 63.40962 L 1607.2233 63.40962 L 1607.2233 55.40962 Z M 1603.0769 59.76317 L 1607.0769 55.76317 L 1606.3698 55.76317 L 1610.3698 59.76317 L 1611.0769 59.056064 L 1607.0769 55.056064 L 1606.7233 54.70251 L 1606.3698 55.056064 L 1602.3698 59.056064 Z" fill="#616161"/>
+        </g>
+        <g id="Graphic_325">
+          <title>zone internal - purple</title>
+          <rect x="925.3015" y="113.00962" width="750.46875" height="119.98076" fill="#ede7f7"/>
+          <rect x="925.3015" y="113.00962" width="750.46875" height="119.98076" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <text transform="translate(935.3015 128.00962)" fill="#757575">
+            <tspan font-family="Roboto" font-size="10" font-weight="400" fill="#757575" x="0" y="9">Attribute definitions</tspan>
+          </text>
+        </g>
+        <g id="Graphic_324">
+          <rect x="982.5457" y="156.00962" width="143.9951" height="56" fill="white"/>
+          <rect x="982.5457" y="156.00962" width="143.9951" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_15)"/>
+          <text transform="translate(998.6096 170.00962)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="31.916016" y="11">Category </tspan>
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="25">(resource or request)</tspan>
+          </text>
+        </g>
+        <g id="Graphic_323">
+          <rect x="1146.5407" y="156.00962" width="143.9951" height="56" fill="white"/>
+          <rect x="1146.5407" y="156.00962" width="143.9951" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_16)"/>
+          <text transform="translate(1193.97 170.00962)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="1.4853516" y="11">Attribute </tspan>
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="9.556641" y="25">name</tspan>
+          </text>
+        </g>
+        <g id="Graphic_321">
+          <rect x="1474.531" y="156.00962" width="143.9951" height="56" fill="white"/>
+          <rect x="1474.531" y="156.00962" width="143.9951" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_17)"/>
+          <text transform="translate(1510.7658 170.00962)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="12.509766" y="11">Behavior </tspan>
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="25">if unspecified</tspan>
+          </text>
+        </g>
+        <g id="Group_381">
+          <g id="Graphic_322">
+            <rect x="1310.5358" y="156.00962" width="143.9951" height="56" fill="white"/>
+            <rect x="1310.5358" y="156.00962" width="143.9951" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_18)"/>
+            <text transform="translate(1357.965 170.00962)" fill="#212121">
+              <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="1.4853516" y="11">Attribute </tspan>
+              <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="7.40625" y="25">values</tspan>
+            </text>
+          </g>
+          <g id="Graphic_380">
+            <title>Stroke-21</title>
+            <line x1="1315.8437" y1="216.36782" x2="1450.27" y2="216.36782" stroke="white" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.732"/>
+          </g>
+          <g id="Graphic_379">
+            <title>Stroke-22</title>
+            <line x1="1320.9293" y1="221.03442" x2="1445.1843" y2="221.03442" stroke="white" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.601"/>
+          </g>
+        </g>
+        <g id="Graphic_320">
+          <rect x="1136.9" y="273.00962" width="328.2" height="56" fill="white"/>
+          <rect x="1136.9" y="273.00962" width="328.2" height="56" stroke="#dfdfdf" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" clip-path="url(#inner_stroke_clip_path_19)"/>
+          <text transform="translate(1152.9219 287.00962)" fill="#212121">
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="106.25684" y="11">Registered data</tspan>
+            <tspan font-family="Roboto" font-size="12" font-weight="400" fill="#212121" x="0" y="25">(stored independently of the Consent Management API)</tspan>
+          </text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

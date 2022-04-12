@@ -143,7 +143,7 @@ $(document).ready(function(){
     })
 
     $('#patient-list-mappings').click(function(){
-        var url = "http://127.0.0.1:5000//demo/consents/demo-dataset/datastores/consent-ds/usermappings";
+        var url = "http://127.0.0.1:5000/demo/consents/demo-dataset/datastores/consent-ds/usermappings";
         fetch(url,{
             method: "GET",
             mode: "cors"
@@ -168,7 +168,7 @@ $(document).ready(function(){
     })
 
     $('#patient-list-consent').click(function(){
-        var url = "http://127.0.0.1:5000//demo/consents/demo-dataset";
+        var url = "http://127.0.0.1:5000/demo/consents/demo-dataset";
         fetch(url,{
             method: "GET",
             mode: "cors"
@@ -193,7 +193,7 @@ $(document).ready(function(){
     })
 
     $('#doctor-request-consent').click(function(){
-        var url = "http://127.0.0.1:5000//demo/consents/demo-dataset/datastores/consent-ds/create";
+        var url = "http://127.0.0.1:5000/demo/consents/demo-dataset/datastores/consent-ds/create";
         fetch(url,{
             method: "GET",
             mode: "cors"
@@ -218,7 +218,7 @@ $(document).ready(function(){
     })
 
     $('#patient-grant-consent').click(function(){
-        var url = "http://127.0.0.1:5000//demo/consents/demo-dataset/datastores/consent-ds/consents/activate";
+        var url = "http://127.0.0.1:5000/demo/consents/demo-dataset/datastores/consent-ds/consents/activate";
         fetch(url,{
             method: "GET",
             mode: "cors"
@@ -242,5 +242,37 @@ $(document).ready(function(){
         });
     })
 
-    
+    $("#nlp-retrieve").click(function(){
+        var file = document.getElementById("customFile").files[0];
+        var url = "http://127.0.0.1:5000//demo/nlp";
+
+        var data = new FormData()
+        data.append('file',file)
+        fetch(url,{
+            method: "POST",
+            mode: "cors",
+            body: data
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(response.error)
+            }
+            response.text().then(function(result){
+                document.getElementById("json_nlp_tags").style.display = "block";
+                var div = document.getElementById("json_nlp_tags");
+                div.replaceChildren();
+                div.appendChild(jsonViewer.getContainer());
+                maxLvl = 7;
+                colAt = 7;
+                jsonViewer.showJSON(JSON.parse(result), maxLvl, colAt); 
+            })
+        })
+        .catch(function(error) {
+            alert(error);
+        });
+
+
+
+
+    })
 })
