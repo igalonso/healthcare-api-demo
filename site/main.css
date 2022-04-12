@@ -175,4 +175,9 @@ body {
 .null { color: magenta; }
 .key { color: red; }
 
-
+.container .image{
+    padding: 30px;
+}
+.custom-file{
+    width: 90%;
+}

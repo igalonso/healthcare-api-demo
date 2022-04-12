@@ -5,12 +5,12 @@ from flask import Flask
 from flask import jsonify
 from flask import send_file
 from flask import request
+from flask import flash, redirect, url_for
 import configparser
 import time
 import pydicom
 import numpy as np
 import png as png
-import uuid
 import string    
 import random
 # Imports Python's built-in "os" module
@@ -23,9 +23,9 @@ from google.auth.transport import requests
 from google.oauth2 import service_account
 
 
-
+UPLOAD_FOLDER = '/'
 app = Flask(__name__, template_folder='site')
-
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 config = configparser.ConfigParser()
 config.sections()
@@ -606,6 +606,32 @@ def activate_consent(project_id,location,dataset_id,consent_store):
     return activated_consent
 
 
+
+def retrieveEntitites(project_id,location,file):
+    api_version = "v1"
+    service_name = "healthcare"
+    client = discovery.build(service_name, api_version)
+    nlp_parent = "projects/{}/locations/{}/services/nlp".format(
+        project_id, location
+    )
+    document = str(file.read())
+    document = document.strip('\n')
+    document = document.strip('\b')
+    body = {
+        "documentContent": document
+    }
+    print(body)
+    entitites = (
+        client.projects()
+        .locations()
+        .services()
+        .nlp()
+        .analyzeEntities(nlpService=nlp_parent,body=body)
+        .execute()
+    )
+    print(entitites)
+    return entitites
+
 # ROUTES
 @app.route("/demo")
 def homepage():
@@ -684,7 +710,10 @@ def deIdandRetrieve(param_dataset,param_datastore):
         return response
     dicomweb_retrieve_instance(projectID,region,datasetdeid,param_datastore,json_params[0]['0020000D']['Value'][0],json_params[0]['0020000E']['Value'][0],json_params[0]['00080018']['Value'][0])
     convert_to_png("instance.dcm")
-    return send_file("instance.png",mimetype="image/png")
+    response = send_file("instance.png",mimetype="image/png")
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Content-Type','application/json')
+    return response
 
 @app.route("/demo/datasets/<param_dataset>/datastores/<param_datastore>")
 def retrieveAll(param_dataset,param_datastore):
@@ -724,4 +753,11 @@ def retrieveUserMappings(param_dataset,param_datastore):
     response.headers.add('Content-Type','application/json')    
     return response
 
+
+@app.route("/demo/nlp",methods=['POST'])
+def retrieveNLPEntities():
+    response = jsonify(retrieveEntitites(projectID,"europe-west4",request.files['file']))
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Content-Type','application/json') 
+    return response
 
