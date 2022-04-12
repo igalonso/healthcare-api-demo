@@ -419,7 +419,6 @@ def delete_dataset(project_id, location, dataset_id):
     response = request.execute()
     print("Deleted dataset: {}".format(dataset_id))
     return response
-
 #CONSENTS:
 def list_consent_stores(project_id, location, dataset_id):
 
@@ -604,9 +603,6 @@ def activate_consent(project_id,location,dataset_id,consent_store):
     print (activated_consent)
     
     return activated_consent
-
-
-
 def retrieveEntitites(project_id,location,file):
     api_version = "v1"
     service_name = "healthcare"
@@ -636,7 +632,6 @@ def retrieveEntitites(project_id,location,file):
 @app.route("/demo")
 def homepage():
     return {}
-
 @app.route("/demo/clean-demo")
 def deleteAll():
     datasets = list_datasets(projectID, region)
@@ -647,7 +642,6 @@ def deleteAll():
             print("Deleting Dataset: "+ dataset['name'].split("/")[5])
             delete_dataset(projectID,region,dataset['name'].split("/")[5])
     return {}
-
 @app.route("/demo/datasets")
 def retrieveDatasets():
     datasets = list_datasets(projectID,region)
@@ -658,7 +652,6 @@ def retrieveDatasets():
     response = jsonify(pretty_datasets)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
 @app.route("/demo/datasets/<param_dataset>")
 def retireveDatastores(param_dataset):
     datasets = list_dicom_stores(projectID,region,param_dataset)
@@ -669,7 +662,6 @@ def retireveDatastores(param_dataset):
     response = jsonify(pretty_datasets)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
 @app.route("/demo/datasets/<param_dataset>/datastores/<param_datastore>/sample-image")
 def retrieveImage(param_dataset,param_datastore):
 
@@ -689,7 +681,6 @@ def retrieveImage(param_dataset,param_datastore):
     response = send_file("instance.png",mimetype="image/png")
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
 @app.route("/demo/datasets/<param_dataset>/datastores/<param_datastore>/sample-image/deid")
 def deIdandRetrieve(param_dataset,param_datastore):
     
@@ -714,11 +705,9 @@ def deIdandRetrieve(param_dataset,param_datastore):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Content-Type','application/json')
     return response
-
 @app.route("/demo/datasets/<param_dataset>/datastores/<param_datastore>")
 def retrieveAll(param_dataset,param_datastore):
     return jsonify(dicomweb_search_instance(projectID,region,param_dataset,param_datastore))
-
 @app.route("/demo/consents/<param_dataset>")
 def retrieveAllConsents(param_dataset):
     response = jsonify(list_consents(projectID,region,param_dataset,"consent-ds"))
@@ -731,15 +720,12 @@ def createConsent(param_dataset,param_datastore):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Content-Type','application/json')    
     return response
-
 @app.route("/demo/consents/<param_dataset>/datastores/<param_datastore>/consents/activate")
 def activateConsent(param_dataset,param_datastore):
     response = jsonify(activate_consent(projectID,region,param_dataset,param_datastore))
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Content-Type','application/json')    
     return response
-
-
 @app.route("/demo/consents/<param_dataset>/datastores/<param_datastore>/usermappings/create")
 def registerDataMapping(param_dataset,param_datastore):
     response = jsonify(register_user_mapping(projectID,region,param_dataset,param_datastore,userUUID,userUUID))
@@ -752,8 +738,6 @@ def retrieveUserMappings(param_dataset,param_datastore):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Content-Type','application/json')    
     return response
-
-
 @app.route("/demo/nlp",methods=['POST'])
 def retrieveNLPEntities():
     response = jsonify(retrieveEntitites(projectID,"europe-west4",request.files['file']))
