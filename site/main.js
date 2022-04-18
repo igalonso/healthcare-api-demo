@@ -19,10 +19,12 @@ function show_image(src, width, height, alt,where) {
 }
 
 $(document).ready(function(){
-    var jsonViewer = new JSONViewer();
     $('#researcher-show-list').click(function(){
         var url = "http://127.0.0.1:5000/demo/datasets";
-        
+        var h = {
+            'Content-Type':'application/json',
+            'Accept':'*/*'
+        }
         fetch(url,{
             method: "GET",
             mode: "cors"
@@ -31,18 +33,18 @@ $(document).ready(function(){
             if (!response.ok) {
                 throw new Error(response.error)
             }
+            response.text().then(function(result){
+                var ul = document.getElementById("researcher-list");
+                ul.replaceChildren();
+                result = JSON.parse(result);
+                result.forEach(element => {
+                    var li = document.createElement("li");
+                    li.className = "researcher-list-li";
+                    li.appendChild(document.createTextNode(element));
+                    ul.appendChild(li); 
+                });
+            })
             return response.json();
-        })
-        .then(data => {
-            var ul = document.getElementById("researcher-list");
-            ul.replaceChildren();
-            data.forEach(element => {
-                var li = document.createElement("li");
-                li.className = "researcher-list-li";
-                li.appendChild(document.createTextNode(element));
-                ul.appendChild(li); 
-            });
-            
         })
         .catch(function(error) {
             document.getElementById('messages').value = error;
@@ -81,6 +83,7 @@ $(document).ready(function(){
                 throw new Error(response.error)
             }
             response.text().then(function(result){
+                var jsonViewer = new JSONViewer();
                 document.getElementById("researcher-sample-image").style.display = "none";
                 document.getElementById("json_sample_image_tags").style.display = "block";
                 var div = document.getElementById("json_sample_image_tags");
@@ -127,6 +130,7 @@ $(document).ready(function(){
                 throw new Error(response.error)
             }
             response.text().then(function(result){
+                var jsonViewer = new JSONViewer();
                 document.getElementById("researcher-sample-image-deid").style.display = "none";
                 document.getElementById("json_sample_deid_image_tags").style.display = "block";
                 var div = document.getElementById("json_sample_deid_image_tags");
@@ -153,6 +157,7 @@ $(document).ready(function(){
                 throw new Error(response.error)
             }
             response.text().then(function(result){
+                var jsonViewer = new JSONViewer();
                 document.getElementById("json_patient_tags").style.display = "block";
                 var div = document.getElementById("json_patient_tags");
                 div.replaceChildren();
@@ -178,6 +183,7 @@ $(document).ready(function(){
                 throw new Error(response.error)
             }
             response.text().then(function(result){
+                var jsonViewer = new JSONViewer();
                 document.getElementById("json_patient_tags").style.display = "block";
                 var div = document.getElementById("json_patient_tags");
                 div.replaceChildren();
@@ -203,6 +209,7 @@ $(document).ready(function(){
                 throw new Error(response.error)
             }
             response.text().then(function(result){
+                var jsonViewer = new JSONViewer();
                 document.getElementById("json_doctor_tags").style.display = "block";
                 var div = document.getElementById("json_doctor_tags");
                 div.replaceChildren();
@@ -228,6 +235,7 @@ $(document).ready(function(){
                 throw new Error(response.error)
             }
             response.text().then(function(result){
+                var jsonViewer = new JSONViewer();
                 document.getElementById("json_patient_tags").style.display = "block";
                 var div = document.getElementById("json_patient_tags");
                 div.replaceChildren();
@@ -258,6 +266,7 @@ $(document).ready(function(){
                 throw new Error(response.error)
             }
             response.text().then(function(result){
+                var jsonViewer = new JSONViewer();
                 document.getElementById("json_nlp_tags").style.display = "block";
                 var div = document.getElementById("json_nlp_tags");
                 div.replaceChildren();
