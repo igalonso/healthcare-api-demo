@@ -19,6 +19,20 @@ function show_image(src, width, height, alt,where) {
 }
 
 $(document).ready(function(){
+    $('#clean-up-demo').click(function(){
+        var url = "http://127.0.0.1:5000/demo/clean-demo";
+        fetch(url,{
+            method: "GET",
+            mode: "no-cors"
+        })
+        .then((response) => {
+            document.getElementById("demo-cleaned").style.display = "block";
+            document.getElementById("clean-up-demo").disabled = true;
+        })
+        .catch(function(error) {
+            alert(error);
+        });
+    });
     $('#researcher-show-list').click(function(){
         var url = "http://127.0.0.1:5000/demo/datasets";
         var h = {
@@ -166,6 +180,23 @@ $(document).ready(function(){
                 colAt = 7;
                 jsonViewer.showJSON(JSON.parse(result), maxLvl, colAt); 
             })
+        })
+        .catch(function(error) {
+            alert(error);
+        });
+    })
+    $('#patient-create-mapping').click(function(){
+        var url = "http://127.0.0.1:5000/demo/consents/demo-dataset/datastores/consent-ds/usermappings/create";
+        fetch(url,{
+            method: "GET",
+            mode: "cors"
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(response.error)
+            }
+            document.getElementById("create-mapping-ok").style.display = "block";
+            document.getElementById("patient-create-mapping").disabled = true;
         })
         .catch(function(error) {
             alert(error);

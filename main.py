@@ -253,15 +253,7 @@ def deidentify_dataset(project_id, location,dataset_id, destination_dataset_id):
 
     api_version = "v1"
     service_name = "healthcare"
-    # Returns an authorized API client by discovering the Healthcare API
-    # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
     client = discovery.build(service_name, api_version)
-
-    # TODO(developer): Uncomment these lines and replace with your values.
-    # project_id = 'my-project'  # replace with your GCP project ID
-    # location = 'us-central1'  # replace with the dataset's location
-    # dataset_id = 'my-source-dataset'  # replace with the source dataset's ID
-    # destination_dataset_id = 'my-destination-dataset'  # replace with the destination dataset's ID
     source_dataset = "projects/{}/locations/{}/datasets/{}".format(
         project_id, location, dataset_id
     )
@@ -418,6 +410,79 @@ def delete_dataset(project_id, location, dataset_id):
 
     response = request.execute()
     print("Deleted dataset: {}".format(dataset_id))
+    return response
+def create_consent_store(
+    project_id: str, location: str, dataset_id: str, consent_store_id: str
+):
+    """Creates a new consent store within the parent dataset.
+    See https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/healthcare/api-client/v1/consent
+    before running the sample."""
+    # Imports the Google API Discovery Service.
+    from googleapiclient import discovery
+
+    api_version = "v1"
+    service_name = "healthcare"
+    # Returns an authorized API client by discovering the Healthcare API
+    # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    client = discovery.build(service_name, api_version)
+
+    # TODO(developer): Uncomment these lines and replace with your values.
+    # project_id = 'my-project'  # replace with your GCP project ID
+    # location = 'us-central1'  # replace with the parent dataset's location
+    # dataset_id = 'my-dataset'  # replace with the consent store's parent dataset ID
+    # consent_store_id = 'my-consent-store'  # replace with the consent store's ID
+    consent_store_parent = (
+        f"projects/{project_id}/locations/{location}/datasets/{dataset_id}"
+    )
+
+    request = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .create(parent=consent_store_parent, body={}, consentStoreId=consent_store_id)
+    )
+
+    response = request.execute()
+    print(f"Created consent store: {consent_store_id}")
+    return response
+def delete_consent_store(
+    project_id: str, location: str, dataset_id: str, consent_store_id: str
+):
+    """Deletes the specified consent store.
+    See https://github.com/GoogleCloudPlatform/python-docs-samples/tree/main/healthcare/api-client/v1/consent
+    before running the sample."""
+    # Imports the Google API Discovery Service.
+    from googleapiclient import discovery
+
+    api_version = "v1"
+    service_name = "healthcare"
+    # Returns an authorized API client by discovering the Healthcare API
+    # and using GOOGLE_APPLICATION_CREDENTIALS environment variable.
+    client = discovery.build(service_name, api_version)
+
+    # TODO(developer): Uncomment these lines and replace with your values.
+    # project_id = 'my-project'  # replace with your GCP project ID
+    # location = 'us-central1'  # replace with the parent dataset's location
+    # dataset_id = 'my-dataset'  # replace with the consent store's parent dataset ID
+    # consent_store_id = 'my-consent-store'  # replace with the consent store's ID
+    consent_store_parent = "projects/{}/locations/{}/datasets/{}".format(
+        project_id, location, dataset_id
+    )
+    consent_store_name = "{}/consentStores/{}".format(
+        consent_store_parent, consent_store_id
+    )
+
+    request = (
+        client.projects()
+        .locations()
+        .datasets()
+        .consentStores()
+        .delete(name=consent_store_name)
+    )
+
+    response = request.execute()
+    print("Deleted consent store: {}".format(consent_store_id))
     return response
 #CONSENTS:
 def list_consent_stores(project_id, location, dataset_id):
@@ -641,7 +706,11 @@ def deleteAll():
             print(dataset.get("name"))
             print("Deleting Dataset: "+ dataset['name'].split("/")[5])
             delete_dataset(projectID,region,dataset['name'].split("/")[5])
-    return {}
+        else:
+            delete_consent_store(projectID,region,dataset['name'].split("/")[5],"consent-ds")
+            create_consent_store(projectID,region,dataset['name'].split("/")[5],"consent-ds")
+    
+    return {"result":"clean"}
 @app.route("/demo/datasets")
 def retrieveDatasets():
     datasets = list_datasets(projectID,region)

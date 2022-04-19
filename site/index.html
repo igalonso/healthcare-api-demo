@@ -22,14 +22,17 @@
         </nav>
         <header class="page-header header container-fluid">
             <div class="overlay">
-
             </div>
             <div class="description">
                 <h1>Welcome to the Healthcare API demo from Google Cloud Platform</h1>
                 <p>This is a short demo to demonstrate 2 main features as roles: Consent and image deidentification. This part of the demo takes the point of view of 3 roles: researcher, doctor and the most important, the patient! You can find all the code use for this demo here: </p>
                 <p>Finally, as part of the Healthcare API demo, we will test the NLP Healthcare API to analyze medical entities of a document.</p>
-                <a href="https://github.com/igalonso/healthcare-api-demo"><img src="images/octocat.png" width="10%"/>Github repo!</a>
+                <a href="https://github.com/igalonso/healthcare-api-demo"><img src="images/octocat.png" width="10%"/>Github repo! </a>
+                
+                <p><input class="btn btn-danger" id="clean-up-demo"  type="button" value="Clean up demo"></p>
+                <p id="demo-cleaned" style="display: none;">Everything is ready!</p>
             </div>
+            
             
         </header>
         <div class="container features">
@@ -112,7 +115,9 @@
                     <div class="image-consent">
                         <img src="images/column-2.png" class="img-fluid-dark">
                     </div>
-                    <p>As a patient, I want to control how doctors and researches access my data. It is convinient to allow consent to my doctors prior to my appointment. I can let them see my data so they can be prepare for my session.</p>
+                    <p>As a patient, I want to control how doctors and researches access my data. </p>
+                    <input class="btn btn-secondary" type="button" id="patient-create-mapping" value="Create data mapping"><div id="create-mapping-ok" style="display: none;">✅</div>
+                    <p>It is convinient to allow consent to my doctors prior to my appointment. I can let them see my data so they can be prepare for my session.</p>
                     <input class="btn btn-primary" type="button" id="patient-list-mappings" value="List user data mappings"> <input class="btn btn-primary" type="button" id="patient-list-consent" value="List requests"> <input class="btn btn-primary" type="button" id="patient-grant-consent" value="Grant consent">
                     <div id="json_patient_tags"></div>
                 </div>
