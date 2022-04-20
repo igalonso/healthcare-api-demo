@@ -757,7 +757,7 @@ def deIdandRetrieve(param_dataset,param_datastore):
     ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = S)) 
     datasetdeid="demo-dataset-deid"+ran
     deidentify_dataset(projectID,region,param_dataset,datasetdeid)
-    time.sleep(5)
+    time.sleep(10)
     json_params = dicomweb_search_instance(projectID,region,datasetdeid,param_datastore)
     args = request.args
     index = args.get("image_index")

@@ -10,3 +10,5 @@ example.json
 *.dcm
 *.sh
 *.png
+patient.json
+organization.json

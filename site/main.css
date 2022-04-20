@@ -71,7 +71,7 @@ body {
     padding: 50px;
     background-color: #d39e001c;
 }
-.consent{
+.consent, .nlp,  .introduction{
     padding: 50px;
 }
 .features {
@@ -188,4 +188,9 @@ body {
     display: block;
     word-wrap: break-word;
     white-space: normal;
+}
+
+.img-slide{
+    width: 1150px;
+    padding: 50px;
 }
