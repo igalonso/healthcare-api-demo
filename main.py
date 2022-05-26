@@ -39,7 +39,6 @@ region = config['DEFAULT']['Region']
 dataStore_Type = config['DEFAULT']['DataStore_Type']
 dataStoreRaw= config['DEFAULT']['DataStoreRaw']
 
-dataStoreConsent= config['DEFAULT']['DataStoreConsent']
 bucket = config['DEFAULT']['Bucket']
 projectID = config['DEFAULT']['ProjectID']
 healthcareUrl = config['DEFAULT']['HealthcareUrl']
@@ -691,6 +690,7 @@ def retrieveEntitites(project_id,location,file):
         .execute()
     )
     print(entitites)
+    
     return entitites
 
 # ROUTES

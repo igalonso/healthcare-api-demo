@@ -1,0 +1,17 @@
+[DEFAULT]
+ServiceAccountFileName=<PATH_TO_YOUR_SERVICE_ACCOUNT_KEY>
+DataSet=demo-dataset
+DataSetDeID=datastore-ds-deid
+Region=europe-west3
+DataStore_Type=DICOM
+
+Bucket=gs://gcs-public-data--healthcare-nih-chest-xray/dicom/00000001_000.dcm
+ProjectID=igngar-test
+HealthcareUrl=https://healthcare.googleapis.com/v1/projects/igngar-test/locations/europe-west3/datasets/demo-dataset/dicomStores/datastore-ds/dicomWeb
+StudyUID=2.25.106461954783291641048254423668956446198
+MultipartName=file_multipart
+SeriesUID=2.25.22373700284337223907674770690654453238
+DCMFileName=extracted_DCM
+InstanceUID=2.25.112784503178059210578740147414000844278
+UserUUID=BE7036CB-A79D-47F0-A474-FD9B90D64339
+

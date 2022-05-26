@@ -61,7 +61,7 @@ $(document).ready(function(){
             return response.json();
         })
         .catch(function(error) {
-            document.getElementById('messages').value = error;
+            //alert(error);
         });
     })
     $('#researcher-show-sample-image').click(function(){

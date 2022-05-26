@@ -1,6 +1,6 @@
 *.ini
 /images
-key.json
+key*.json
 *.dcm
 extracted_DCM_deid.dcm
 extracted_DCM_raw.dcm
@@ -8,7 +8,10 @@ extracted_DCM.dcm
 file_multipart.dcm
 example.json
 *.dcm
-*.sh
+consent.sh
+main.sh
 *.png
 patient.json
 organization.json
+/az
+/env
