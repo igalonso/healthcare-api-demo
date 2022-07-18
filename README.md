@@ -11,9 +11,7 @@ Add it to the main folder of this repo with the name ***1-1-2.dcm***
 
 Then, run: 
 
-```sh install.sh```
-
-Now replace the path the currently created service account key file ***configuration.ini***.
+```sh install.sh -g GCP_PROJECT -r GCP_REGION -k KEY_FILE_NAME```
 
 ## RUN
 
