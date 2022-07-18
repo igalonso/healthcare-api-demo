@@ -10,3 +10,4 @@ pydicom
 numpy
 pypng
 google-cloud-documentai
+google-cloud-translate
