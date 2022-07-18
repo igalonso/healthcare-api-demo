@@ -20,3 +20,6 @@ organization.json
 /extra-translate/*.txt
 example-*
 /__pycache__/*
+*.json
+configuration.ini.old
+configuration.ini
