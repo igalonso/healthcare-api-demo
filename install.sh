@@ -1,4 +1,4 @@
-export GCP_PROJECT="igngar-test"
+export GCP_PROJECT="healthcare-api-demo-352513"
 export HC_DATASET="demo-dataset"
 export REGION="europe-west3"
 export UUID=$(uuidgen | tr '[:upper:]' '[:lower:]')

@@ -15,3 +15,8 @@ patient.json
 organization.json
 /az
 /env
+/extra-translate/sa.json
+/extra-translate/URG.pdf
+/extra-translate/*.txt
+example-*
+/__pycache__/*
