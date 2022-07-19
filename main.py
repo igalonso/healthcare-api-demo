@@ -672,31 +672,9 @@ def activate_consent(project_id,location,dataset_id,consent_store):
     return activated_consent
 
 #NLP
-# def retrieveEntitites(project_id,location,file):
-#     api_version = "v1"
-#     service_name = "healthcare"
-#     client = discovery.build(service_name, api_version)
-#     nlp_parent = "projects/{}/locations/{}/services/nlp".format(
-#         project_id, location
-#     )
-#     document = str(file.read())
-#     document = document.strip('\n')
-#     document = document.strip('\b')
-#     body = {
-#         "documentContent": document
-#     }
-#     print(body)
-#     entitites = (
-#         client.projects()
-#         .locations()
-#         .services()
-#         .nlp()
-#         .analyzeEntities(nlpService=nlp_parent,body=body)
-#         .execute()
-#     )
-#     print(entitites)
-    
-#     return entitites
+def retrieveEntitites(project_id,location,file):
+    document = str(file.read())
+    return retrieveNLPData(project_id,"europe-west4",document)
 def quickstart(project_id: str, location: str, processor_id: str, file_path: str):
 
     # You must set the api_endpoint if you use a location other than 'us', e.g.:
@@ -729,7 +707,6 @@ def quickstart(project_id: str, location: str, processor_id: str, file_path: str
     # For a full list of Document object attributes, please reference this page: https://googleapis.dev/python/documentai/latest/_modules/google/cloud/documentai_v1beta3/types/document.html#Document
 
     # Read the text recognition output from the processor
-    # print("The document contains the following paragraphs:")
     texto = ""
     for page in document_pages:
         paragraphs = page.paragraphs
@@ -780,7 +757,6 @@ def translate_text(target, text):
     # print(u"Detected source language: {}".format(result["detectedSourceLanguage"]))
     return result
 def retrieveNLPData(project_id,location,text):
-    print(location)
     api_version = "v1"
     service_name = "healthcare"
     client = discovery.build(service_name, api_version)
@@ -793,7 +769,6 @@ def retrieveNLPData(project_id,location,text):
     body = {
         "documentContent": document
     }
-    #print(body)
     entitites = (
         client.projects()
         .locations()
@@ -801,9 +776,7 @@ def retrieveNLPData(project_id,location,text):
         .nlp()
         .analyzeEntities(nlpService=nlp_parent,body=body)
         .execute()
-    )
-    #print(entitites)
-    
+    )    
     return entitites
 
 
@@ -923,10 +896,14 @@ def retrieveUserMappings(param_dataset,param_datastore):
     return response
 @app.route("/demo/nlp",methods=['POST'])
 def retrieveNLPEntities():
-    #response = jsonify(retrieveEntitites(projectID,region,request.files['file']))
-    text_from_response = quickstart(projectID,"eu",idProcesor,request.files['file'])
-    translated_text=translate_text("en",text_from_response)
-    response = jsonify(retrieveNLPData(projectID,"europe-west4",translated_text["translatedText"]))
+    #
+    if( request.files['file'].content_type == "text/plain"):
+        response = jsonify(retrieveEntitites(projectID,region,request.files['file']))
+    else:
+        print(request.files['file'].name)
+        text_from_response = quickstart(projectID,"eu",idProcesor,request.files['file'])
+        translated_text=translate_text("en",text_from_response)
+        response = jsonify(retrieveNLPData(projectID,"europe-west4",translated_text["translatedText"]))
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Content-Type','application/json') 
     return response
