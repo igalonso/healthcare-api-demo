@@ -1,4 +1,3 @@
-.gitignore
 *.ini
 /images
 key*.json
