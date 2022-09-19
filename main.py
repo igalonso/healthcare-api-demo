@@ -903,6 +903,7 @@ def retrieveNLPEntities():
         print(request.files['file'].name)
         text_from_response = quickstart(projectID,"eu",idProcesor,request.files['file'])
         translated_text=translate_text("en",text_from_response)
+        #print(translated_text["translatedText"])
         response = jsonify(retrieveNLPData(projectID,"europe-west4",translated_text["translatedText"]))
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Content-Type','application/json') 
